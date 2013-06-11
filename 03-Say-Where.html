@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'> 
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css">
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <title>wbyoko - Say Where</title>
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0px; padding: 0px }
+    .google-map{width:100%; height:100%;}
+    .map-control{background-color: white; margin:1em; padding:.5em; border-radius: 1em; word-wrap: break-word;}
+  </style>
+</head>
+<body ng-app="mapComponentsApp">
+
+  <div class="google-map" say-where="" latitude="43.074688" longitude="-89.384294"></div>
+
+  <script type="text/html" id="whereControl">
+    <form class="pure-u-1-4 pure-form pure-form-stacked map-control">
+      <fieldset>
+        <legend>Say Where</legend>
+        <label for="latitude">Latitude:</label>
+        <input id="latitude" class="pure-input-1" type="text" ng-model="latitude">
+        <label for="longitude">Longitude:</label>
+        <input id="longitude" class="pure-input-1" type="text" ng-model="longitude">
+      </fieldset>
+    </form>
+  </script>
+
+  <script type="text/javascript">
+    var mapApp = angular.module('mapComponentsApp', []);
+
+    mapApp.directive('sayWhere', function ($compile) {
+      return {
+        controller: function ($scope) {
+          var map;
+
+          this.registerMap = function (myMap) {
+            var center = myMap.getCenter(),
+              latitude = center.lat(),
+              longitude = center.lng();
+
+            map = myMap;
+            $scope.latitude = latitude;
+            $scope.longitude = longitude;
+          };
+
+          $scope.$watch('latitude + longitude', function (newValue, oldValue) {
+            if (newValue !== oldValue) { 
+              var center = map.getCenter(),
+                latitude = center.lat(),
+                longitude = center.lng();
+              if ($scope.latitude !== latitude || $scope.longitude !== longitude)
+                map.setCenter(new google.maps.LatLng($scope.latitude, $scope.longitude));
+            }
+          });
+        },
+        link: function (scope, elem, attrs, ctrl) {
+          var mapOptions,
+            latitude = attrs.latitude,
+            longitude = attrs.longitude,
+            controlTemplate,
+            controlElem,
+            map;
+
+          // parsing latLong or setting default location
+          latitude = latitude && parseFloat(latitude, 10) || 43.074688;
+          longitude = longitude && parseFloat(longitude, 10) || -89.384294;
+
+          mapOptions = {
+            zoom: 8,
+            disableDefaultUI: true,
+            center: new google.maps.LatLng(latitude, longitude),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+
+          map = new google.maps.Map(elem[0], mapOptions);
+
+          ctrl.registerMap(map);
+
+          controlTemplate = document.getElementById('whereControl').innerHTML.trim();
+          controlElem = $compile(controlTemplate)(scope);
+          map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlElem[0]);
+
+          function centerChangedCallback (scope, map) {
+            return function () {
+              var center = map.getCenter();
+              scope.latitude = center.lat();
+              scope.longitude = center.lng();
+              if(!scope.$$phase) scope.$apply();
+            };
+          }
+          google.maps.event.addListener(map, 'center_changed', centerChangedCallback(scope, map));
+        }
+      };
+    });    
+  </script>
+</body>
+</html>

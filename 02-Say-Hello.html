@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'> 
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css">
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <title>wbyoko - Say Hello</title>
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0px; padding: 0px }
+    .google-map{width:100%; height:100%;}
+    .map-control{background-color: white; margin:1em; padding:.5em; border-radius: 1em;}
+  </style>
+</head>
+<body ng-app="mapComponentsApp">
+  
+  <div class="google-map" say-hello="" latitude="43.074688" longitude="-89.384294"></div>
+
+  <script type="text/html" id="helloControl">
+    <form class="pure-u-1-4 pure-form pure-form-stacked map-control">
+      <fieldset>
+        <legend>Say Hello</legend>
+        <label for="name">Name:</label>
+        <input id="name" class="pure-input-1" type="text" ng-model="yourName" placeholder="Enter a name here">
+        <h1>Hello <span ng-bind="yourName"></span>!</h1>
+      </fieldset>
+    </form>
+  </script>
+
+  <script type="text/javascript">
+    var mapApp = angular.module('mapComponentsApp', []);
+
+    mapApp.directive('sayHello', function ($compile) {
+      return function (scope, elem, attrs) {
+        var mapOptions,
+          latitude = attrs.latitude,
+          longitude = attrs.longitude,
+          controlTemplate,
+          controlElem,
+          map;
+
+        latitude = latitude && parseFloat(latitude, 10) || 43.074688;
+        longitude = longitude && parseFloat(longitude, 10) || -89.384294;
+
+        mapOptions = {
+          zoom: 8,
+          disableDefaultUI: true,
+          center: new google.maps.LatLng(latitude, longitude)
+        };
+
+        map = new google.maps.Map(elem[0], mapOptions);
+
+        controlTemplate = document.getElementById('helloControl').innerHTML.trim();
+        controlElem = $compile(controlTemplate)(scope);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlElem[0]);
+      };
+    });    
+  </script>
+</body>
+</html>
