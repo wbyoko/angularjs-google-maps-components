@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Angularjs-google-maps-components by wbyoko</title>
+    <title>Awesome Google Maps Components with AngularJS by wbyoko</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -31,25 +31,22 @@
 
       <section>
         <div id="title">
-          <h1>Angularjs-google-maps-components</h1>
-          <p>Making google maps components with AngularJS</p>
+          <h1>Awesome Google Maps Components with AngularJS</h1>
+          <p></p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/wbyoko">wbyoko</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
 
         <h2>
-<a name="awesome-google-maps-components-with-angularjs" class="anchor" href="#awesome-google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Awesome Google Maps Components with AngularJS</h2>
-
-<h2>
-<a name="making--google-maps-components-with-angularjs" class="anchor" href="#making--google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Making  Google Maps Components with AngularJS</h2>
+<a name="making-google-maps-components-with-angularjs" class="anchor" href="#making-google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Making Google Maps Components with AngularJS</h2>
 
 <h3>
 <a name="the-setup" class="anchor" href="#the-setup"><span class="octicon octicon-link"></span></a>The setup</h3>
 
-<p>I been hacking with AngularJS since the start of the year.  I really enjoy the framework, but outside of personal and side projects, I really hadn't found a good way to get it into the toolkit at work. I thought maps would be a good opportunity. I had already chipped in with two Google Maps pieces this year. Unfortunately though, I was only helping some people who were inexperienced with javascript, and wouldn't be maintaining or even putting the finishing touches on those projects.  I looked into using some of the open source google maps directives out there (great job on all of them), but at the end it was too much to hand off to someone who wasn't the strongest javascript developer, and ending up acquiescing to use jQuery and Handlebars. </p>
+<p>I have been hacking with AngularJS since the start of the year.  I really enjoy the framework, though outside of personal and side projects, I really hadn't found a good way to get it into the toolkit at work. I thought maps would be a good opportunity. I had already chipped in with two Google Maps pieces this year. Unfortunately though, I was only helping some people who were inexperienced with javascript, and wouldn't be maintaining those projects. I looked into using some of the open source google maps directives out there (great job on all of them), but at the end it was too much to hand off to someone who wasn't the strongest javascript developer, and ending up acquiescing to use jQuery and Handlebars. </p>
 
-<p>Finally, a project came around which I would be maintaining and felt this would be a great opportunity to see if AngularJS could fit. After getting to the point of just writing it explicitly, I saw a really simple workflow for setting up and creating your map directive that can lead to a pretty immersive and distinguished map. </p>
+<p>Finally, a project came around which I would be maintaining and felt this would be a great opportunity to see if AngularJS could fit. After getting to the point of just writing it without pre-made directives, I saw a really simple workflow for setting up and creating your map directive that can lead to a pretty immersive and distinguished map. </p>
 
 <h4>
 <a name="link-function" class="anchor" href="#link-function"><span class="octicon octicon-link"></span></a>Link Function</h4>
@@ -76,26 +73,28 @@
 <span class="p">});</span>
 </pre></div>
 
-<p>You could use a directive controller, and would be straightforward using both. I created an <a href="">demo</a>/<a href="">source file</a> which shows a simple map example. </p>
+<p>You could use a directive controller, and would be straightforward using both. I created a <a href="http://wbyoko.co/angularjs-google-maps-components/demos/01-Hello-Maps.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/01-Hello-Maps.html">source file</a> which shows a simple map example. </p>
 
 <h4>
 <a name="custom-controls" class="anchor" href="#custom-controls"><span class="octicon octicon-link"></span></a>Custom Controls</h4>
 
-<p>Now, it wasn't until I had realized the ease with which I could add data-binded custom controls, that I knew that AngularJS could help making really ambitions maps applications not only possible, but very manageable. After tinkering with a few situations, I recognized that using the <a href="http://docs.angularjs.org/api/ng.%24compile">$compile</a> service to compile HTML into an AngularJS template and link it to the directive's scope fits perfectly. Ends up being three lines. I left the templates as strings as there are opportunites to use pre-angular templating systems, such as <a href="http://ejohn.org/blog/javascript-micro-templating/">JavaScript Micro-Templating</a> to offload some of the logic that wouldn't need to be managed by AngularJS.</p>
+<p>Now, it wasn't until I had realized the ease with which I could add data-binded custom controls, that I knew that AngularJS could help making really ambitions maps applications not only possible, but very manageable. After tinkering with a few situations, I recognized that using the <a href="http://docs.angularjs.org/api/ng.%24compile">$compile</a> service to compile HTML into an AngularJS template and link it to the directive's scope fits perfectly. Ends up being three lines. </p>
 
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">controlTemplate</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'helloControl'</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">controlElem</span> <span class="o">=</span> <span class="nx">$compile</span><span class="p">(</span><span class="nx">controlTemplate</span><span class="p">)(</span><span class="nx">scope</span><span class="p">);</span>
 <span class="nx">map</span><span class="p">.</span><span class="nx">controls</span><span class="p">[</span><span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">ControlPosition</span><span class="p">.</span><span class="nx">TOP_LEFT</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">controlElem</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </pre></div>
 
-<p>I created an <a href="">demo</a>/<a href="">source file</a> to show the data-binded custom controls in action.</p>
+<p>I left the templates as strings as there are opportunites to use pre-angular templating systems, such as <a href="http://ejohn.org/blog/javascript-micro-templating/">John Resig's Micro-Templating Function</a> to offload some of the logic that wouldn't need to be managed by AngularJS.</p>
+
+<p>I created a <a href="http://wbyoko.co/angularjs-google-maps-components/demos/02-Say-Hello.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/02-Say-Hello.html">source file</a> to show a data-binded custom controls in action.</p>
 
 <h4>
-<a name="binding-to-map" class="anchor" href="#binding-to-map"><span class="octicon octicon-link"></span></a>Binding to Map</h4>
+<a name="binding-to-the-map" class="anchor" href="#binding-to-the-map"><span class="octicon octicon-link"></span></a>Binding to the Map</h4>
 
 <p>There end up being two parts to the binding. one will be reciveing data from map events, the other is making the map reacting to scope changes. </p>
 
-<p>I figured getting a lat/long would be a good proof of concept and here it is <a href="">demo</a>/<a href="">source file</a>. </p>
+<p>I tackle this, a lat/long binding would be a good proof of concept and here it is <a href="http://wbyoko.co/angularjs-google-maps-components/demos/03-Say-Where.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/03-Say-Where.html">source file</a>. </p>
 
 <p>Responding to map event is done basically the same way Google Maps advices with the slight Angular twist of a <code>scope.$apply</code> to make sure the changes are reflected in Angular. </p>
 
@@ -110,7 +109,7 @@
 <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="nx">map</span><span class="p">,</span> <span class="s1">'center_changed'</span><span class="p">,</span> <span class="nx">centerChangedCallback</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">map</span><span class="p">));</span>
 </pre></div>
 
-<p>To get the scope changes pushed back to the map we need to write a binging against the scope. It seemed to be the time to add a controller to the directice. I created a controller instance function <code>this.registerMap = function (myMap) {...};</code> to pass the map instance to the controller once it had been created. <code>ctrl.registerMap(map);</code>. At this point, it's a straightforward <code>$scope.$watch</code> to get the scope data reflected back onto the map.</p>
+<p>To get the scope changes pushed back to the map we need to write a binding against the scope. It seemed to be the time to add a controller to the directice. I created a controller instance function <code>this.registerMap = function (myMap) {...};</code> to pass the map instance to the controller once it had been created. <code>ctrl.registerMap(map);</code>. At this point, it's a straightforward <code>$scope.$watch</code> to get the scope data reflected back onto the map.</p>
 
 <div class="highlight"><pre><span class="nx">$scope</span><span class="p">.</span><span class="nx">$watch</span><span class="p">(</span><span class="s1">'latitude + longitude'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">!==</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span> 
@@ -126,17 +125,18 @@
 <h4>
 <a name="closing" class="anchor" href="#closing"><span class="octicon octicon-link"></span></a>Closing</h4>
 
-<p>At this point there only one thing left todo.... todo maps <a href="">demo</a>/<a href="">source file</a>. Even thought it end up being a fair bit of code the most important code is the link function of the todoMaps directive (at the bottom of source), which is it still digestable, and is the core of the entire application.</p>
+<p>At this point there only one thing left to do.... todo maps <a href="http://wbyoko.co/angularjs-google-maps-components/demos/04-Todo-Maps.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/04-Todo-Maps.html">source file</a>. Even thought it end up being a fair bit of code the most important code is the link function of the todoMaps directive (at the bottom of source), which is it still digestable, and is the core of the entire application.</p>
 
 <h4>
 <a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h4>
 
-<p>The only tools I used for these examples were 
-<a href="http://angularjs.org/">AngularJS</a>
-<a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps</a>
-<a href="http://purecss.io/">YUI's Pure Css Frameworks</a></p>
+<p>The only tools I used for these examples were </p>
 
-<h4>
+<ul>
+<li><a href="http://angularjs.org/">AngularJS</a></li>
+<li><a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps</a></li>
+<li><a href="http://purecss.io/">YUI's Pure Css Frameworks</a></li>
+</ul><h4>
 <a name="summary" class="anchor" href="#summary"><span class="octicon octicon-link"></span></a>Summary</h4>
 
 <p>There were no other external dependencies for these samples nor do i believe any would they have made making these components any easier (angular has $http for ajax requests)</p>
