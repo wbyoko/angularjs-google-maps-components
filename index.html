@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Angularjs-google-maps-components by wbyoko</title>
+    <title>Awesome Google Maps Components with AngularJS by wbyoko</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -31,18 +31,15 @@
 
       <section>
         <div id="title">
-          <h1>Angularjs-google-maps-components</h1>
-          <p>Making google maps components with AngularJS</p>
+          <h1>Awesome Google Maps Components with AngularJS</h1>
+          <p></p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/wbyoko">wbyoko</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
 
         <h2>
-<a name="awesome-google-maps-components-with-angularjs" class="anchor" href="#awesome-google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Awesome Google Maps Components with AngularJS</h2>
-
-<h2>
-<a name="making--google-maps-components-with-angularjs" class="anchor" href="#making--google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Making  Google Maps Components with AngularJS</h2>
+<a name="making-google-maps-components-with-angularjs" class="anchor" href="#making-google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Making Google Maps Components with AngularJS</h2>
 
 <h3>
 <a name="the-setup" class="anchor" href="#the-setup"><span class="octicon octicon-link"></span></a>The setup</h3>
@@ -76,7 +73,7 @@
 <span class="p">});</span>
 </pre></div>
 
-<p>You could use a directive controller, and would be straightforward using both. I created an <a href="">demo</a>/<a href="">source file</a> which shows a simple map example. </p>
+<p>You could use a directive controller, and would be straightforward using both. I created an <a href="http://wbyoko.co/angularjs-google-maps-components/demos/01-Hello-Maps.html">demo</a>/<a href="https://raw.github.com/wbyoko/angularjs-google-maps-components/master/01-Hello-Maps.html">source file</a> which shows a simple map example. </p>
 
 <h4>
 <a name="custom-controls" class="anchor" href="#custom-controls"><span class="octicon octicon-link"></span></a>Custom Controls</h4>
@@ -88,14 +85,14 @@
 <span class="nx">map</span><span class="p">.</span><span class="nx">controls</span><span class="p">[</span><span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">ControlPosition</span><span class="p">.</span><span class="nx">TOP_LEFT</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">controlElem</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </pre></div>
 
-<p>I created an <a href="">demo</a>/<a href="">source file</a> to show the data-binded custom controls in action.</p>
+<p>I created an <a href="http://wbyoko.co/angularjs-google-maps-components/demos/02-Say-Hello.html">demo</a>/<a href="http://wbyoko.co/angularjs-google-maps-components/demos/02-Say-Hello.html">source file</a> to show the data-binded custom controls in action.</p>
 
 <h4>
 <a name="binding-to-map" class="anchor" href="#binding-to-map"><span class="octicon octicon-link"></span></a>Binding to Map</h4>
 
 <p>There end up being two parts to the binding. one will be reciveing data from map events, the other is making the map reacting to scope changes. </p>
 
-<p>I figured getting a lat/long would be a good proof of concept and here it is <a href="">demo</a>/<a href="">source file</a>. </p>
+<p>I figured getting a lat/long would be a good proof of concept and here it is <a href="http://wbyoko.co/angularjs-google-maps-components/demos/03-Say-Where.html">demo</a>/<a href="http://wbyoko.co/angularjs-google-maps-components/demos/03-Say-Where.html">source file</a>. </p>
 
 <p>Responding to map event is done basically the same way Google Maps advices with the slight Angular twist of a <code>scope.$apply</code> to make sure the changes are reflected in Angular. </p>
 
@@ -126,7 +123,7 @@
 <h4>
 <a name="closing" class="anchor" href="#closing"><span class="octicon octicon-link"></span></a>Closing</h4>
 
-<p>At this point there only one thing left todo.... todo maps <a href="">demo</a>/<a href="">source file</a>. Even thought it end up being a fair bit of code the most important code is the link function of the todoMaps directive (at the bottom of source), which is it still digestable, and is the core of the entire application.</p>
+<p>At this point there only one thing left todo.... todo maps <a href="http://wbyoko.co/angularjs-google-maps-components/demos/04-Todo-Maps.html">demo</a>/<a href="http://wbyoko.co/angularjs-google-maps-components/demos/04-Todo-Maps.html">source file</a>. Even thought it end up being a fair bit of code the most important code is the link function of the todoMaps directive (at the bottom of source), which is it still digestable, and is the core of the entire application.</p>
 
 <h4>
 <a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h4>
