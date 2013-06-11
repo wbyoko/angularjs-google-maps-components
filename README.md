@@ -61,7 +61,7 @@ function centerChangedCallback (scope, map) {
 google.maps.event.addListener(map, 'center_changed', centerChangedCallback(scope, map));
 ```
 
-To get the scope changes pushed back to the map we need to write a binding against the scope. It seemed to be the time to add a controller to the directice. I created a controller instance function ```this.registerMap = function (myMap) {...};``` to pass the map instance to the controller once it had been created. ```ctrl.registerMap(map);```. At this point, it's a straightforward ```$scope.$watch``` to get the scope data reflected back onto the map.
+To get the scope changes pushed back to the map we need to write a binding against the scope. It seemed to be the time to add a controller to the directive. I created a controller instance function ```this.registerMap = function (myMap) {...};``` to pass the map instance to the controller once it had been created. ```ctrl.registerMap(map);```. At this point, it's a straightforward ```$scope.$watch``` to get the scope data reflected back onto the map.
 
 ```javascript
 $scope.$watch('latitude + longitude', function (newValue, oldValue) {
