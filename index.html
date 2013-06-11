@@ -41,15 +41,12 @@
         <h2>
 <a name="making-google-maps-components-with-angularjs" class="anchor" href="#making-google-maps-components-with-angularjs"><span class="octicon octicon-link"></span></a>Making Google Maps Components with AngularJS</h2>
 
-<h3>
-<a name="the-setup" class="anchor" href="#the-setup"><span class="octicon octicon-link"></span></a>The setup</h3>
-
 <p>I have been hacking with AngularJS since the start of the year.  I really enjoy the framework, though outside of personal and side projects, I really hadn't found a good way to get it into the toolkit at work. I thought maps would be a good opportunity. I had already chipped in with two Google Maps pieces this year. Unfortunately though, I was only helping some people who were inexperienced with javascript, and wouldn't be maintaining those projects. I looked into using some of the open source google maps directives out there (great job on all of them), but at the end it was too much to hand off to someone who wasn't the strongest javascript developer, and ending up acquiescing to use jQuery and Handlebars. </p>
 
 <p>Finally, a project came around which I would be maintaining and felt this would be a great opportunity to see if AngularJS could fit. After getting to the point of just writing it without pre-made directives, I saw a really simple workflow for setting up and creating your map directive that can lead to a pretty immersive and distinguished map. </p>
 
-<h4>
-<a name="link-function" class="anchor" href="#link-function"><span class="octicon octicon-link"></span></a>Link Function</h4>
+<h2>
+<a name="link-function" class="anchor" href="#link-function"><span class="octicon octicon-link"></span></a>Link Function</h2>
 
 <p>The simplest situation is just setting up a map with a starting location. Using the directive link function instantiate the map seems to do a great job. </p>
 
@@ -75,8 +72,8 @@
 
 <p>You could use a directive controller, and would be straightforward using both. I created a <a href="http://wbyoko.co/angularjs-google-maps-components/demos/01-Hello-Maps.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/01-Hello-Maps.html">source file</a> which shows a simple map example. </p>
 
-<h4>
-<a name="custom-controls" class="anchor" href="#custom-controls"><span class="octicon octicon-link"></span></a>Custom Controls</h4>
+<h2>
+<a name="custom-controls" class="anchor" href="#custom-controls"><span class="octicon octicon-link"></span></a>Custom Controls</h2>
 
 <p>Now, it wasn't until I had realized the ease with which I could add data-binded custom controls, that I knew that AngularJS could help making really ambitions maps applications not only possible, but very manageable. After tinkering with a few situations, I recognized that using the <a href="http://docs.angularjs.org/api/ng.%24compile">$compile</a> service to compile HTML into an AngularJS template and link it to the directive's scope fits perfectly. Ends up being three lines. </p>
 
@@ -89,8 +86,8 @@
 
 <p>I created a <a href="http://wbyoko.co/angularjs-google-maps-components/demos/02-Say-Hello.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/02-Say-Hello.html">source file</a> to show a data-binded custom controls in action.</p>
 
-<h4>
-<a name="binding-to-the-map" class="anchor" href="#binding-to-the-map"><span class="octicon octicon-link"></span></a>Binding to the Map</h4>
+<h2>
+<a name="binding-to-the-map" class="anchor" href="#binding-to-the-map"><span class="octicon octicon-link"></span></a>Binding to the Map</h2>
 
 <p>There end up being two parts to the binding. one will be reciveing data from map events, the other is making the map reacting to scope changes. </p>
 
@@ -122,13 +119,13 @@
 <span class="p">});</span>
 </pre></div>
 
-<h4>
-<a name="closing" class="anchor" href="#closing"><span class="octicon octicon-link"></span></a>Closing</h4>
+<h2>
+<a name="todo-maps" class="anchor" href="#todo-maps"><span class="octicon octicon-link"></span></a>Todo Maps</h2>
 
 <p>At this point there only one thing left to do.... todo maps <a href="http://wbyoko.co/angularjs-google-maps-components/demos/04-Todo-Maps.html">demo</a>/<a href="https://github.com/wbyoko/angularjs-google-maps-components/blob/master/04-Todo-Maps.html">source file</a>. Even thought it end up being a fair bit of code the most important code is the link function of the todoMaps directive (at the bottom of source), which is it still digestable, and is the core of the entire application.</p>
 
-<h4>
-<a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h4>
+<h3>
+<a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools</h3>
 
 <p>The only tools I used for these examples were </p>
 
@@ -141,19 +138,13 @@
 
 <p>There were no other external dependencies for these samples nor do i believe any would they have made making these components any easier (angular has $http for ajax requests)</p>
 
-<h4>
-<a name="i-think-this-is-big" class="anchor" href="#i-think-this-is-big"><span class="octicon octicon-link"></span></a>I think this is big</h4>
+<h3>
+<a name="i-think-this-is-big" class="anchor" href="#i-think-this-is-big"><span class="octicon octicon-link"></span></a>I think this is big</h3>
 
-<p>This is an awesome use case that should have AngularJS showing up in a lot of places. As someone writes a map a least once or twice a year, I feel it's a much more pleasant workflow than using jQuery/Handlebars, Not to mention the easy assess to data-binded custom map controls and the savvy look and feature set your map could achieve pretty easily.</p>
+<p>This is an awesome use case that could have AngularJS showing up in a lot of places. As someone writes a map a least once or twice a year, I feel it's a much more pleasant workflow than using jQuery/Handlebars, Not to mention the easy assess to data-binded custom map controls and the savvy look and feature set your map could achieve pretty easily.</p>
 
-<h4>
-<a name="what-didnt-i-do" class="anchor" href="#what-didnt-i-do"><span class="octicon octicon-link"></span></a>What didn't i do.</h4>
-
-<p>Isolate the scope. -  You can do it if you needed to add multiple instances. 
-Annotate for compilation. -  Not needed for the article. </p>
-
-<h4>
-<a name="learn-more-about-angularjs" class="anchor" href="#learn-more-about-angularjs"><span class="octicon octicon-link"></span></a>Learn more about AngularJS</h4>
+<h3>
+<a name="learn-more-about-angularjs" class="anchor" href="#learn-more-about-angularjs"><span class="octicon octicon-link"></span></a>Learn more about AngularJS</h3>
 
 <p>Hopefully, if you don't know AngularJS, you are now interested. A great list of <a href="https://github.com/jmcunningham/AngularJS-Learning">AngularJS resources</a>, started by <a href="https://github.com/jmcunningham" class="user-mention">@jmcunningham</a> has tons of great info from articles to videos to books. </p>
 
