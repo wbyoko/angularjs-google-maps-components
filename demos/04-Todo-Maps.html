@@ -379,7 +379,7 @@
               { completed: true } : null;
           });
 
-          $scope.$watch('location.path() + todos.nextId', function () {
+          $scope.$watch('location.path() + todos.nextId + todos.remainingCount()', function () {
             var i,
               todos = todosService.filtered(),
               map = mapService.getMap(),
