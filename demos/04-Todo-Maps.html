@@ -275,6 +275,15 @@
       }
       google.maps.event.addListener(editMarker, 'drag', editMarkerDragCallback($scope, editMarker));
 
+      function editMarkerDblClickCallback (scope) {
+        return function () {
+          scope.$apply(function () {
+            scope.submitTodo();
+          });
+        };
+      }
+      google.maps.event.addListener(editMarker, 'dblclick', editMarkerDblClickCallback($scope));
+
       $scope.$watch('editTodo.lat + editTodo.lng', function (newValue, oldValue) {
         if (newValue !== oldValue) { 
           var pos = editMarker.getPosition(),
