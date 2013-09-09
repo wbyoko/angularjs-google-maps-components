@@ -31,7 +31,7 @@ You could use a directive controller, and would be straightforward using both. I
 (https://github.com/wbyoko/angularjs-google-maps-components/blob/master/01-Hello-Maps.html) which shows a simple map example. 
 
 ## Custom Controls
-Now, it wasn't until I had realized the ease with which I could add data-binded custom controls, that I knew that AngularJS could help making really ambitions maps applications not only possible, but very manageable. After tinkering with a few situations, I recognized that using the [$compile](http://docs.angularjs.org/api/ng.$compile) service to compile HTML into an AngularJS template and link it to the directive's scope fits perfectly. Ends up being three lines. 
+Now, it wasn't until I had realized the ease with which I could add data-binded custom controls, that I knew that AngularJS could help making really ambitious maps applications not only possible, but very manageable. After tinkering with a few situations, I recognized that using the [$compile](http://docs.angularjs.org/api/ng.$compile) service to compile HTML into an AngularJS template and link it to the directive's scope fits perfectly. Ends up being three lines. 
 
 ```javascript
 var controlTemplate = document.getElementById('helloControl').innerHTML.trim();
